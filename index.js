@@ -4,6 +4,9 @@ const path = require("path");
 const port = 3000;
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+if (process.env.NODE_ENV != "production") {
+    require("dotenv").config();
+}
 const session = require("express-session");
 const flash = require("connect-flash");
 
@@ -11,7 +14,7 @@ const mainRoutes = require("./routes/mainAppRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 mongoose
-    .connect("mongodb://localhost:27017/toDoList")
+    .connect(process.env.MONGO_URL)
     .then(() => console.log("Database Connection Established"))
     .catch(() => {
         console.log("Error while connecting to database");
@@ -21,7 +24,11 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
-    session({ secret: "secretKey", resave: false, saveUninitialized: true })
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+    })
 );
 app.use(flash());
 
