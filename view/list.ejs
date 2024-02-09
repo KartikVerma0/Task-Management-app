@@ -74,7 +74,7 @@
                             </form>
                             <div class="alertContainer mt-3"></div>
                 </div>
-                <div class="container d-flex">
+                <div class="container d-flex flex-wrap gap-2">
 
                     <% for( let index=0; index < allTasks.length; index++ ) { %>
                         <%- include('partials/card',{title:allTasks[index].title,description:allTasks[index].desc,priority:allTasks[index].priority,id:allTasks[index]._id})
