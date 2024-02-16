@@ -2,7 +2,7 @@
 ![Screenshot of home page of Task Management Application](https://github.com/KartikVerma0/Task-Management-app/assets/97230777/a58a5682-8609-4eeb-a401-6cda6151db72)
 
 
-This is a task management application built with Node.js, Express, MongoDB, Mongoose, and EJS. It allows users to register, login, and create their own tasks with prioritized color coding.
+This is a task management application built with Node.js, Express, MongoDB, Mongoose, BootStrap and EJS. It allows users to register, login, and create their own tasks with prioritized color coding.
 
 ### Features
 
